@@ -3,63 +3,92 @@
 <link rel="stylesheet" href="./assets/css/fonts.min.css"/>
 
 <dom-module id="alpha-login">
-  <template>
-    <style include="login-styles">
-      :host {
+	<template>
+		<style include="login-styles">
+			:host {
 
-        font-family:"ITCAvantGardeStd";
-		font-weight:100;
+				font-family:"ITCAvantGardeStd";
+				font-weight:100;
 
-      }
-    </style>
+			}
+		</style>
 
-	<div id="back-button" class="ico-wordmark" onclick="history.go(-1);"></div>
-	<div id='login-bg'>
-		<img src='./assets/images/logo.svg' alt=''/>
-	</div>
+		<div id="back-button" class="ico-wordmark" onclick="history.go(-1);"></div>
+		<div id='login-bg'>
+			<img src='./assets/images/logo.svg' alt=''/>
+		</div>
 
-	<div class="form-wrapper">
-		<form method='get' action='https://run.alphacanada.org/login'>
-			<h1>Access our Resources</h1>
-			<div class='form-inner'>
-				<p>
-					<label>Email
-						<input class='input' type='email' name='userlogin' required/>
-					</label>
-				</p>
-				<input class='submit-btn' type='submit' value='Login to Alpha Builder'/>
+		<div class="forms-outer">
+			<div class="form-wrapper">
+				<form method='get' action='https://run.alphacanada.org/login'>
+					<h1>Access our Resources</h1>
+					<div class='form-inner'>
+						<p>
+							<label>Email
+								<input class='input' type='email' name='userlogin' required/>
+							</label>
+						</p>
+						<input class='submit-btn' type='submit' value='Login to Alpha Builder'/>
+					</div>
+				</form>
+
+				<form method='get' action='https://donate.alphacanada.org/wp-login.php'>
+					<h1>Manage Your Giving</h1>
+					<div class='form-inner'>
+						<template is="dom-if" if="[[!isDonateLoggedIn]]">
+							<p>
+								<label>Email
+									<input class='input' type='email' name='userlogin' required/>
+								</label>
+							</p>
+							<input class='submit-btn' type='submit' value='Login to My Giving'/>
+						</template>
+
+						<template is="dom-if" if="[[isDonateLoggedIn]]">
+							<p class="message">[[donateLoggedInMessage]]</p>
+							<a class="submit-btn" href="/my-giving/">My Account</a>
+						</template>
+					</div>
+				</form>
 			</div>
-		</form>
+		</div>
 
-		<form method='get' action='https://donate.alphacanada.org/wp-login.php'>
-			<h1>Manage Your Giving</h1>
-			<div class='form-inner'>
-				<p>
-					<label>Email
-						<input class='input' type='email' name='userlogin' required/>
-					</label>
-				</p>
-				<input class='submit-btn' type='submit' value='Login to My Giving'/>
-			</div>
-		</form>
-	</div>
+	</template>
+
+	<script>
+		Polymer({
+
+			is: 'alpha-login',
+
+			properties: {
+			  alphaDonate: {
+				type: Object,
+				value: {}
+			  }
+			},
+
+			getAlphaDonateOptions : function(){
+				var defaults = {
+					loggedIn : false,
+					loggedInMessage : "You are already logged in."
+				};
+				for(var prop in defaults){
+					if(!this.alphaDonate[prop]){
+						this.alphaDonate[prop] = defaults[prop];
+					}
+				}
+				return this.alphaDonate;
+			},
+
+			ready : function(){
 
 
+				var donateOptions = this.getAlphaDonateOptions();
 
-  </template>
+				this.isDonateLoggedIn = donateOptions.loggedIn;
+				this.donateLoggedInMessage = donateOptions.loggedInMessage;
+			}
 
-  <script>
-    Polymer({
-
-      is: 'alpha-login',
-
-      properties: {
-        prop1: {
-          type: String,
-          value: 'alpha-login',
-        },
-      },
-
-    });
-  </script>
+		});
+	</script>
 </dom-module>

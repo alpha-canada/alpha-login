@@ -68,24 +68,35 @@ h1{
 	.flex-display();
 	.justify-content(center);
 	.align-items(center);
-	.flex-flow(column nowrap);
+	.flex-flow(row wrap);
+	width:100%;
 
 	padding:0 10px;
-	height:100%;
 
 	@media (min-width:414px){
 		padding:0 20px;
 
 	}
 
-	@media (min-width:768px){
-		.flex-direction(row);
-	}
+}
+
+.forms-outer{
+	height:100%;
+	.flex-display();
+	.align-items(center);
+	.justify-content(center);
 }
 
 .form-inner{
 	max-width:320px;
 	margin:0 auto;
+	width:100%;
+	.flex-display();
+	.flex-flow(row wrap);
+	.flex-grow(1);
+	> * {
+		width:100%;
+	}
 }
 
 form{
@@ -93,7 +104,11 @@ form{
 	position:relative;
 
 	max-width:480px;
-	width:100%;
+	.flex-basis(100%);
+	
+	.align-self(stretch);
+	.flex-display();
+	.flex-flow(column nowrap);
 
 	margin-bottom:25px;		
 	padding:10px 10px 30px 10px;
@@ -105,6 +120,8 @@ form{
 
 		padding-top:35px;
 		padding-bottom:50px;
+		
+		.flex-basis(50%);
 
 		margin-bottom:0;
 
@@ -114,21 +131,32 @@ form{
 	}
 }
 .submit-btn{
+
 	background: @red;
 	color:#fff;
+	cursor:pointer;
+
 	border:none;
 	border-radius:0;
-	text-shadow:none;
-	box-shadow:none;
 
-	display:block;
-	padding:15px 30px;
+	box-shadow:none;
+	box-sizing:border-box;
+
+	display:block;	
 	width:100%;
+	padding:15px 30px;
+
 	margin-top:25px;		
+
 	font-size:18px;
 	font-weight:600;
-	box-sizing:border-box;
-	cursor:pointer;
+
+	text-shadow:none;
+	text-decoration:none;
+	text-align:center;
+	
+	.align-self(flex-end);
+
 	&:hover {
 		background:#b51c0e;
 
