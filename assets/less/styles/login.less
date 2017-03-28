@@ -1,0 +1,169 @@
+
+@import "../imports/mixins.less";
+
+@red: #e42312;
+
+#back-button::before {
+  
+  font-family: 'AlphaIcons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+:host{
+	display:block;
+	height:100%;
+	padding:0;
+	margin:0;
+	background:#fff;
+	
+}
+
+#back-button{
+	position:fixed;
+	top:10px;
+	right:10px;
+	z-index:10;
+	cursor:pointer;
+	&::before{
+		
+		content: "\6b";
+		font-size:26px;
+		
+		background:#e6e7e8;		
+		color:#0b0b0b;
+		
+		border-radius:50%;
+		overflow:hidden;
+		width:50px;
+		height:50px;
+		
+		.flex-display();
+		.justify-content(center);
+		.align-items(center);
+		
+	}
+}
+
+h1{
+	font-weight:800;
+	text-align:center;
+
+	// 1 column small, shrink h1, tablet to desktop shrink to fit 2 col
+	@media (max-width:440px), (min-width:768px) and (max-width:1024px) {
+		font-size: 1.5em;
+	}
+}
+
+.form-wrapper{
+
+	.flex-display();
+	.justify-content(center);
+	.align-items(center);
+	.flex-flow(column nowrap);
+
+	padding:0 10px;
+	height:100%;
+
+	@media (min-width:414px){
+		padding:0 20px;
+
+	}
+
+	@media (min-width:768px){
+		.flex-direction(row);
+	}
+}
+
+.form-inner{
+	max-width:320px;
+	margin:0 auto;
+}
+
+form{
+	box-sizing:border-box;
+	position:relative;
+
+	max-width:480px;
+	width:100%;
+
+	margin-bottom:25px;		
+	padding:10px 10px 30px 10px;
+
+	border: 1px solid #e6e7e8;
+	background:#fff;
+
+	@media (min-width:768px){
+
+		padding-top:35px;
+		padding-bottom:50px;
+
+		margin-bottom:0;
+
+		&:last-child{
+			border-left:none;
+		}
+	}
+}
+.submit-btn{
+	background: @red;
+	color:#fff;
+	border:none;
+	border-radius:0;
+	text-shadow:none;
+	box-shadow:none;
+
+	display:block;
+	padding:15px 30px;
+	width:100%;
+	margin-top:25px;		
+	font-size:18px;
+	font-weight:600;
+	box-sizing:border-box;
+	cursor:pointer;
+	&:hover {
+		background:#b51c0e;
+
+	}
+
+}
+label{
+	font-size:16px;
+
+	color:#5d6368;
+
+}
+.input{
+	margin-top:10px;
+	font-size: 16px;
+	padding: 10px;
+	display:block;
+	width:100%;
+	box-sizing:border-box;
+
+}
+
+#login-bg{
+	position:absolute;
+	z-index:0;
+	right:0;
+	bottom:0;
+	width:70%;
+	max-height:100%;
+	overflow:hidden;
+	img{
+		opacity:0.2;
+		display:block;
+		position:relative;
+		right:-30px;
+		bottom:-30px;
+	}
+}

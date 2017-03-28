@@ -1,0 +1,65 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="./assets/css/login-styles.html"/>
+<link rel="stylesheet" href="./assets/css/fonts.min.css"/>
+
+<dom-module id="alpha-login">
+  <template>
+    <style include="login-styles">
+      :host {
+
+        font-family:"ITCAvantGardeStd";
+		font-weight:100;
+
+      }
+    </style>
+
+	<div id="back-button" class="ico-wordmark" onclick="history.go(-1);"></div>
+	<div id='login-bg'>
+		<img src='/assets/images/logo.svg' alt=''/>
+	</div>
+
+	<div class="form-wrapper">
+		<form method='get' action='https://run.alphacanada.org/login'>
+			<h1>Access our Resources</h1>
+			<div class='form-inner'>
+				<p>
+					<label>Email
+						<input class='input' type='email' name='userlogin' required/>
+					</label>
+				</p>
+				<input class='submit-btn' type='submit' value='Login to Alpha Builder'/>
+			</div>
+		</form>
+
+		<form method='get' action='https://donate.alphacanada.org/wp-login.php'>
+			<h1>Manage Your Giving</h1>
+			<div class='form-inner'>
+				<p>
+					<label>Email
+						<input class='input' type='email' name='userlogin' required/>
+					</label>
+				</p>
+				<input class='submit-btn' type='submit' value='Login to My Giving'/>
+			</div>
+		</form>
+	</div>
+
+
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'alpha-login',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'alpha-login',
+        },
+      },
+
+    });
+  </script>
+</dom-module>

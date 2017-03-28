@@ -1,0 +1,118 @@
+
+
+.flex-display(){
+	display:-webkit-flex;
+	display:-moz-flex;
+	display:-ms-flex;
+	display:flex;
+}
+
+.justify-content(@param){
+	-webkit-justify-content:@param;
+	-moz-justify-content:@param;
+	-ms-justify-content:@param;
+	justify-content:@param;
+}
+
+.flex-flow(@param){
+	-webkit-flex-flow: @param;
+	-moz-flex-flow: @param;
+	-ms-flex-flow: @param;
+	flex-flow: @param;
+}
+
+.flex-direction(@param){
+	-webkit-flex-direction:@param;
+	-moz-flex-direction:@param;
+	-o-flex-direction:@param;
+	-ms-flex-direction:@param;
+	flex-direction:@param;	
+}
+
+.align-items(@param){
+	-webkit-align-items: @param;
+	-moz-align-items: @param;
+	-ms-align-items: @param;
+	align-items: @param;
+}
+
+.align-content(@param){
+	-webkit-align-content: @param;
+	-moz-align-content: @param;
+	-ms-align-content: @param;
+	align-content: @param;
+}
+
+.flex-wrap(@param){
+	-webkit-flex-wrap:@param;
+	-moz-flex-wrap:@param;
+	-o-flex-wrap:@param;
+	-ms-flex-wrap:@param;
+	flex-wrap:@param;	
+}
+
+.flex-basis(@param){
+	-webkit-flex-basis:@param;
+	-moz-flex-basis:@param;
+	-o-flex-basis:@param;
+	-ms-flex-basis:@param;
+	flex-basis:@param;	
+}
+
+.flex-grow(@amt){
+	-webkit-flex-grow:@amt;
+	-moz-flex-grow:@amt;
+	-o-flex-grow:@amt;
+	-ms-flex-grow:@amt;
+	flex-grow:@amt;	
+}
+
+.flex-shrink(@amt){
+	-webkit-flex-shrink:@amt;
+	-moz-flex-shrink:@amt;
+	-o-flex-shrink:@amt;
+	-ms-flex-shrink:@amt;
+	flex-shrink:@amt;	
+}
+
+.flex(@shorthand){
+	-webkit-flex: @shorthand;
+	-moz-flex: @shorthand;
+	-ms-flex: @shorthand;
+	flex: @shorthand;
+}
+
+.order(@value){
+	-webkit-order:@value;
+	-moz-order:@value;
+	-ms-order:@value;
+	order:@value;
+}
+
+.transition(...) {
+    -webkit-transition: @arguments;
+    -moz-transition: @arguments;
+    -o-transition: @arguments;
+    -ms-transition: @arguments;
+	transition: @arguments;
+}
+
+.animation(...) {
+	-webkit-animation: @arguments;
+	-moz-animation: @arguments;
+	-ms-animation: @arguments;
+	animation: @arguments;
+}
+
+.transform(@property){
+	-webkit-transform:@property;
+	-moz-transform:@property;
+	-ms-transform:@property;
+	transform:@property;
+}
+
+.keyframes(@name; @arguments) {
+	@-moz-keyframes @name { @arguments(); }
+	@-webkit-keyframes @name { @arguments(); }
+	@keyframes @name { @arguments(); }
+}
